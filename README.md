@@ -1,3 +1,5 @@
+[My image](netosouza22.github.com/LOL-app/assets/lol_page_main.jpeg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
