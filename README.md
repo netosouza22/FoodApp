@@ -1,4 +1,4 @@
-[My image](netosouza22.github.com/LOL-app/assets/lol_page_main.jpeg)
+[My image](netosouza22/LOL-app/blob/master/src/assets/lol_page_main.jpeg)
 
 # Getting Started with Create React App
 
