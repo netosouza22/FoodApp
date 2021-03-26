@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
         // // overflow: 'hidden',
         padding: 0,
         marginLeft: "-40px",
+        margin: 0,
     },
     root1: {
         display: 'flex',
@@ -45,18 +46,21 @@ function Champions(){
        fetchData();
     }, [])
 
+    
     // const numberKeysChampion = Object.keys(champion).length;
     for(var i in champion) {
+        console.log(i);
         nameChamps.push(i);
     }
 
-    //Filtra os nomes e retorna o array com os novos nomes filtrados, e o argumento da função é o input
+    //Filter the names and return a array with the new filtered names.
     function filterName(input){
         nameChamps = nameChamps.filter((item) => {
             return item.includes(input);
         })
         return nameChamps;
     }
+
    filterName(input);
 
     const updateInput = async (input) => {
@@ -74,8 +78,9 @@ function Champions(){
                                 let name = champion[`${item}`]['name'];
                                 let img = champion[`${item}`]['image'];
                                 let title = champion[`${item}`]['title'];
+                                let id = champion[`${item}`]['id'];
         
-                                return  <CardChampion name={name} img={img} title={title} ></CardChampion>       
+                                return  <CardChampion id={id} name={name} img={img} title={title} ></CardChampion>       
                             }
                         )}
                     </Grid> 

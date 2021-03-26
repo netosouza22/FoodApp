@@ -1,13 +1,22 @@
 import './App.css';
-import Champions from './Components/Champions'
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import Champions from './Components/Champions';
+import infoChamp from './Components/infoChamp';
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
-        <Champions></Champions>
+        <Switch>
+          <Route path="/" component={Champions} exact/>
+          <Route path="/:id" component={infoChamp} />
+        </Switch>
       </header>
     </div>
+    </Router>
   );
 }
 

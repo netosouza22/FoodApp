@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {Card, CardMedia, CardContent} from '@material-ui/core'
@@ -21,7 +22,7 @@ const useStyle = makeStyles(({URL}) => ({
             boxShadow: "0px 0px 30px red"
             
           },
-        // backgroundImage: URL,
+
         backgroundSize: 'contain cover',
         backgroundRepeat: 'no-repeat',
         transition: 'transform 0.6s',
@@ -39,64 +40,27 @@ const useStyle = makeStyles(({URL}) => ({
         textAlign: "center",
         color: "white"
     },
-
-
 }));
 
-const verifyName = (name) => {
-    if(name.includes("'")){
+function CardChampion({id, img, name, title}){ 
+    const nameChamp = id;
 
-        if(name === "Rek'Sai" || name === "Kog'Maw"){
-            let nameWithoutSymbol = name.replace(/[^a-zA-Z0-9]+/g, "");
-            return nameWithoutSymbol;
-        }else {
-
-        
-        let nameWithoutSymbol = name.replace(/[^a-zA-Z0-9]+/g, "");
-        let nameLwerCase = nameWithoutSymbol.toLowerCase();
-        let nameFinal = nameLwerCase.substring(0,1).toUpperCase().concat(nameLwerCase.substring(1));
-        return nameFinal;
-    }
-        
-    }else{
-        if(name === "Le Blanc"){
-            let nameSimple = name.replace(/[^a-zA-Z0-9]+/g, "");
-            return nameSimple;
-        }
-        if( name === "Wukong"){
-            let nameSimple = name.substring(0,1).toLowerCase().concat(name.substring(1));
-            return nameSimple;
-        }else{
-            let nameSimple = name.replace(/[^a-zA-Z0-9]+/g, "");
-            return nameSimple;
-        }
-        
-    }
-}
-
-function CardChampion({img, name, title}){
-    
-    const nameSimple = verifyName(name);
-
-    const URL = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${nameSimple}_0.jpg`
-    const classes = useStyle(URL);    
+    const imageChampion = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${nameChamp}_0.jpg`
+    const classes = useStyle(imageChampion);    
 
     return(
   <div className={classes.mainDiv}>
- 
-        <Card className = {classes.root}>
-            {/* <div><h1>{name}</h1></div>
-            
-            
-            <CardContent><h4>{title}</h4></CardContent> */}
-            {/* <img src={URL} alt={name}></img> */}
-            <CardMedia component="img" image={URL} ></CardMedia>
-            <CardContent className={classes.cardContent}>
-                    <Typography variant="h4"> {name} </Typography>
-                    <Typography variant="p"> {title} </Typography>
-            </CardContent>
-            
-        </Card>
+      
+        <Link to={`/${id}`}><Card className = {classes.root}>
+                                    
+                <CardMedia component="img" image={imageChampion} ></CardMedia>
+                <CardContent className={classes.cardContent}>
+                        <Typography variant="h4"> {name} </Typography>
+                        <Typography variant="p"> {title} </Typography>
+                </CardContent>
+                
+            </Card>
+        </Link>
 </div>
     );
 }
