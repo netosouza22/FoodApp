@@ -8,10 +8,6 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // display: 'flex',
-        // flexWrap: 'wrap',
-        // justifyContent: 'space-around',
-        // // overflow: 'hidden',
         padding: 0,
         marginLeft: "-40px",
         margin: 0,
@@ -39,7 +35,7 @@ function Champions(){
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios("http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json");
-            const champ = result.data;
+            const champ = await result.data;
             
             setChampion(champ.data);
         }
@@ -49,7 +45,6 @@ function Champions(){
     
     // const numberKeysChampion = Object.keys(champion).length;
     for(var i in champion) {
-        console.log(i);
         nameChamps.push(i);
     }
 
@@ -61,11 +56,10 @@ function Champions(){
         return nameChamps;
     }
 
-   filterName(input);
-
+    filterName(input);
     const updateInput = async (input) => {
         setInput(input);
-     }
+    }
 
     return(
         <ul>
@@ -74,13 +68,13 @@ function Champions(){
                 <div >
                     <Grid  className={classes.root1}> 
                 
-                        {nameChamps.map( (item) => {
+                        {nameChamps.map( (item, index) => {
                                 let name = champion[`${item}`]['name'];
                                 let img = champion[`${item}`]['image'];
                                 let title = champion[`${item}`]['title'];
                                 let id = champion[`${item}`]['id'];
         
-                                return  <CardChampion id={id} name={name} img={img} title={title} ></CardChampion>       
+                                return  <CardChampion key={index} id={id} name={name} img={img} title={title} ></CardChampion>       
                             }
                         )}
                     </Grid> 

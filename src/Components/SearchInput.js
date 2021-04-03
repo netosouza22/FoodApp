@@ -5,17 +5,22 @@ import {makeStyles} from "@material-ui/core/styles"
 
 const useStyles = makeStyles(() =>({
     root: {
-        marginTop: "-17px",
+
+        marginTop: "-25px",
         marginBottom: "10px",
+        padding: 20,
+        backgroundColor: "#111000",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        borderBottom: '5px solid #5D281A'
+    
     },
     search: {
-        width: 500,
+        width: '100%',
         backgroundColor: "#d6d6d6",
+        textDecoration: 'none',
         border: "2px solid green",
-        borderRadius: "20px",
 
     },
     resize: {

@@ -1,48 +1,54 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-import { makeStyles } from '@material-ui/core/styles'
+import '../assets/delaGothic.css';
+
+import { makeStyles, createMuiTheme , ThemeProvider} from '@material-ui/core/styles'
 import {Card, CardMedia, CardContent} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 
+//Using a diferent font in material UI
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: 'Dela Gothic One, cursive' ,
+        fontSize: [15],
+        
+    }
+})
+
 const useStyle = makeStyles(({URL}) => ({
-    maiDiv: {
-        "&:hover": {
-            transform: "scale(1.2)",
-          },
-    },
+
     root: {
         maxWidth: 200,
         maxHeight: 350,
         marginBottom: 20,
+        border: '2px solid #5D281A',
         "&:hover": {
-            border: "3px solid yellow",
-            transform: "scale(1.1) ",
             cursor: "pointer",
-            boxShadow: "0px 0px 30px red"
+            boxShadow: "0px 0px 20px red"
             
           },
 
         backgroundSize: 'contain cover',
         backgroundRepeat: 'no-repeat',
         transition: 'transform 0.6s',
-    },
-    media: {
-        // width: 200,
+        textDecorationLine: 'none',
     },
     cardContent: {
         width:"100%",
-        height: 130,
+        height: 40,
         padding: "0px !important",
-        transform: "translateY(-130px)",
-       
-        backgroundColor: "rgba(255,0,0,0.3)",
+        transform: "translateY(-40px)",
+
+        backgroundColor: "rgba(255,0,0,0.8)",
         textAlign: "center",
-        color: "white"
+        color: "white",
+        
+        fontStyle: 'italic',   
     },
 }));
 
-function CardChampion({id, img, name, title}){ 
+function CardChampion({id, name, title}){ 
     const nameChamp = id;
 
     const imageChampion = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${nameChamp}_0.jpg`
@@ -50,13 +56,14 @@ function CardChampion({id, img, name, title}){
 
     return(
   <div className={classes.mainDiv}>
-      
-        <Link to={`/${id}`}><Card className = {classes.root}>
+
+        <Link to={`/${id}`} style= {{textDecorationLine: 'none'}} ><Card  className = {classes.root}>
                                     
                 <CardMedia component="img" image={imageChampion} ></CardMedia>
                 <CardContent className={classes.cardContent}>
-                        <Typography variant="h4"> {name} </Typography>
-                        <Typography variant="p"> {title} </Typography>
+                    <ThemeProvider theme={theme}>
+                        <Typography> {name.toUpperCase()} </Typography>
+                    </ThemeProvider>
                 </CardContent>
                 
             </Card>
