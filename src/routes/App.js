@@ -1,8 +1,8 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Champions from './Components/Champions';
-import infoChamp from './Components/infoChamp';
+import Champions from './../Components/Champions'
+import infoChamp from './../Components/infoChamp';
 
 
 function App() {

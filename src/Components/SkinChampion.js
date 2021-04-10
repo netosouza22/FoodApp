@@ -8,13 +8,12 @@ import Button from '@material-ui/core/Button';
 
 export default function SkinChampion({arrSkins, counter}) {
     const [count, setCount] = useState(0);
-    console.log(arrSkins);
     useEffect(() => {
         const foo = () => {
             return counter(count);
         }
         foo();
-    }, [count])
+    }, [count, counter])
 
     function increment(){
         if(count < arrSkins.length - 1){

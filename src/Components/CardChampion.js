@@ -3,18 +3,17 @@ import {Link} from 'react-router-dom'
 
 import '../assets/delaGothic.css';
 
-import { makeStyles, createMuiTheme , ThemeProvider} from '@material-ui/core/styles'
+import { makeStyles , ThemeProvider} from '@material-ui/core/styles'
 import {Card, CardMedia, CardContent} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 
 //Using a diferent font in material UI
-const theme = createMuiTheme({
-    typography: {
-        fontFamily: 'Dela Gothic One, cursive' ,
-        fontSize: [15],
-        
-    }
-})
+// const theme = createMuiTheme({
+//     typography: {
+//         fontFamily: 'Dela Gothic One, cursive' ,
+//         fontSize: 15,
+//     }
+// })
 
 const useStyle = makeStyles(({URL}) => ({
 
@@ -43,9 +42,14 @@ const useStyle = makeStyles(({URL}) => ({
         backgroundColor: "rgba(255,0,0,0.8)",
         textAlign: "center",
         color: "white",
-        
+
+
         fontStyle: 'italic',   
     },
+    text: {
+        fontFamily: 'Dela Gothic One, cursive' ,
+        fontSize: 15,
+    }
 }));
 
 function CardChampion({id, name, title}){ 
@@ -61,8 +65,8 @@ function CardChampion({id, name, title}){
                                     
                 <CardMedia component="img" image={imageChampion} ></CardMedia>
                 <CardContent className={classes.cardContent}>
-                    <ThemeProvider theme={theme}>
-                        <Typography> {name.toUpperCase()} </Typography>
+                    <ThemeProvider>
+                        <Typography className = {classes.text}> {name.toUpperCase()} </Typography>
                     </ThemeProvider>
                 </CardContent>
                 

@@ -8,13 +8,11 @@ import Typography from '@material-ui/core/Typography';
 const EditedTooltip = withStyles({
     tooltip: {
       color: "white",
-      backgroundColor: "black",
-      marginTop: '-100px',
-      borderBottom: '4px solid blue'
+      backgroundColor: "#101010",
+    //   marginTop: '-100px',
+      borderBottom: '4px solid #FF8C00',
+      fontFamily: 'roboto',
     },
-    p: {
-        fontSize: 50,
-    }
   })(Tooltip);
 
 const useStyles = makeStyles((theme) => ({
@@ -24,9 +22,12 @@ const useStyles = makeStyles((theme) => ({
         height: '50px',
         backgroundImage: `url(${props.url})`,
         backgroundSize: 'cover',
-        border: '4px solid #blue'
+        border: '1px solid #FF8C00'
 
     }),
+    text: {
+        fontSize: '15px',
+    }
 }));
 
 export default function InfoPaperSkills(props){
@@ -49,7 +50,7 @@ export default function InfoPaperSkills(props){
         <EditedTooltip title={
                 <div >
                   <Typography variant="h5" color="inherit">{skill.name}</Typography>
-                  <Typography variant="caption">{skill.description}</Typography>
+                  <Typography  className={classes.text} >{skill.description}</Typography>
                 </div>
               
         } placement="top-start"> 
