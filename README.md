@@ -1,4 +1,11 @@
-![My image](https://github.com/netosouza22/LOL-app/blob/master/src/assets/lol_page_main.jpeg)
+## Main page
+![My image](https://github.com/netosouza22/LOL-app/blob/master/src/assets/champions_page.png)
+
+## Searching
+![My image](https://github.com/netosouza22/LOL-app/blob/master/src/assets/search_champ.png)
+
+## Viewing the champ details
+![My image](https://github.com/netosouza22/LOL-app/blob/master/src/assets/champ_pp.png)
 
 In this project was used ReactJS and Material Ui, you can see all League of Legends's Champions and you can find him using the TextField in the top of page
 # Getting Started with Create React App
