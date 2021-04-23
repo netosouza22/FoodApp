@@ -34,7 +34,7 @@ function Champions(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json");
+            const result = await axios("//ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json");
             const champ = await result.data;
             
             setChampion(champ.data);
